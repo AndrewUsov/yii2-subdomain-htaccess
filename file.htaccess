@@ -1,0 +1,61 @@
+Options +FollowSymlinks
+RewriteEngine On
+
+# ------ backend ------
+
+RewriteCond %{HTTP_HOST} ^admin\.planshoot\.com$ [NC]
+RewriteCond %{REQUEST_URI} !^/backend/web/(assets|css|images|js)/
+RewriteRule ^assets/(.*)$ backend/web/assets/$1 [L]
+
+RewriteCond %{HTTP_HOST} ^admin\.planshoot\.com$ [NC]
+RewriteCond %{REQUEST_URI} !^/backend/web/(assets|css|images|js)/
+RewriteRule ^css/(.*)$ backend/web/css/$1 [L]
+
+RewriteCond %{HTTP_HOST} ^admin\.planshoot\.com$ [NC]
+RewriteCond %{REQUEST_URI} !^/backend/web/(assets|css|images|js)/
+RewriteRule ^js/(.*)$ backend/web/js/$1 [L]
+
+RewriteCond %{HTTP_HOST} ^admin\.planshoot\.com$ [NC]
+RewriteCond %{REQUEST_URI} !^/backend/web/(assets|css|images|js)/
+RewriteRule ^images/(.*)$ backend/web/images/$1 [L]
+
+RewriteCond %{HTTP_HOST} ^admin\.planshoot\.com$ [NC]
+RewriteCond %{REQUEST_URI} ^/favicon.ico
+RewriteRule ^favicon.ico$ backend/web/favicon.ico [L]
+
+RewriteCond %{HTTP_HOST} ^admin\.planshoot\.com$ [NC]
+RewriteCond %{REQUEST_URI} !^/backend/web/(assets|css|images|js)/
+RewriteCond %{REQUEST_URI} !index.php
+RewriteCond %{REQUEST_FILENAME} !-f [OR]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ /backend/web/index.php [L]
+
+
+# ------ frontend -------
+
+RewriteCond %{HTTP_HOST} ^planshoot\.com$ [NC]
+RewriteCond %{REQUEST_URI} !^/frontend/web/(assets|css|images|js)/
+RewriteRule ^assets/(.*)$ frontend/web/assets/$1 [L]
+
+RewriteCond %{HTTP_HOST} ^planshoot\.com$ [NC]
+RewriteCond %{REQUEST_URI} !^/frontend/web/(assets|css|images|js)/
+RewriteRule ^css/(.*)$ frontend/web/css/$1 [L]
+
+RewriteCond %{HTTP_HOST} ^planshoot\.com$ [NC]
+RewriteCond %{REQUEST_URI} !^/frontend/web/(assets|css|images|js)/
+RewriteRule ^js/(.*)$ frontend/web/js/$1 [L]
+
+RewriteCond %{HTTP_HOST} ^planshoot\.com$ [NC]
+RewriteCond %{REQUEST_URI} !^/frontend/web/(assets|css|images|js)/
+RewriteRule ^images/(.*)$ frontend/web/images/$1 [L]
+
+RewriteCond %{HTTP_HOST} ^planshoot\.com$ [NC]
+RewriteCond %{REQUEST_URI} ^/favicon.ico
+RewriteRule ^favicon.ico$ frontend/web/favicon.ico [L]
+
+RewriteCond %{HTTP_HOST} ^planshoot\.com$ [NC]
+RewriteCond %{REQUEST_URI} !^/frontend/web/(assets|css|images|js)/
+RewriteCond %{REQUEST_URI} !index.php
+RewriteCond %{REQUEST_FILENAME} !-f [OR]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ /frontend/web/index.php [L]
